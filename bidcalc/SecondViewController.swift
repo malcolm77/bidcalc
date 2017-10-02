@@ -15,21 +15,36 @@ class SecondViewController: UIViewController
     @IBOutlet weak var maxToPayField: UITextField!
     @IBOutlet weak var costOfPostageField: UITextField!
     @IBOutlet weak var bidAmountField: UITextField!
-
+    @IBOutlet weak var calculateButton: UIButton!
     
-    
+    var fullprice: Float = 0.0
+    var percentpay: Float = 0.0
+    var maxpay: Float = 0.0
+    var postage: Float = 0.0
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        calculateButton.layer.cornerRadius = 5
+        calculateButton.clipsToBounds = true
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func CalculateBid(_ sender: UIButton) {
+        // button was pressed
+        
+        if Float(fullPriceField.text!) != nil { }
+        if Float(percentToPayField.text!) != nil { }
+        if Float(costOfPostageField.text!) != nil { }
+        
+        maxpay = fullprice + postage / (percentpay/100)
+        
+        bidAmountField.text = String(maxpay)
+    }
+    
 }
 

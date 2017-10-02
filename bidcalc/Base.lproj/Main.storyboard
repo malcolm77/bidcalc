@@ -59,7 +59,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rxX-Dj-ESx">
-                                <rect key="frame" x="152" y="361" width="72" height="33"/>
+                                <rect key="frame" x="152" y="372" width="72" height="33"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
@@ -68,12 +68,12 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGX-j1-aGI">
-                                <rect key="frame" x="45.5" y="280" width="284" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="9Dx-dU-iAK"/>
-                                </constraints>
+                                <rect key="frame" x="73" y="280" width="230" height="41"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Calculate the amount to bid"/>
+                                <state key="normal" title=" Calculate bid amount ">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="calculateBid:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Uru-f6-U2M"/>
                                 </connections>
@@ -98,6 +98,7 @@
                     <tabBarItem key="tabBarItem" title="Max to Pay" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="amountToBid" destination="rxX-Dj-ESx" id="U9l-Kf-E5B"/>
+                        <outlet property="calculateButton" destination="eGX-j1-aGI" id="D2t-Xg-Z7k"/>
                         <outlet property="maxToPay" destination="u4J-h1-Ycg" id="EWC-ai-47i"/>
                         <outlet property="postageCost" destination="BfH-D5-ioR" id="JCR-OR-tLi"/>
                     </connections>
@@ -118,93 +119,115 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UTT-1C-WoQ">
-                                <rect key="frame" x="16" y="40" width="343" height="361"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xSu-Ja-LMD">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="24"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wC8-aU-kV5">
-                                        <rect key="frame" x="0.0" y="34" width="343" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Percent you want to pay" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gB-g6-TL5">
-                                        <rect key="frame" x="0.0" y="74" width="343" height="24"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4wZ-lW-tnm">
-                                        <rect key="frame" x="0.0" y="108" width="343" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max. Price to pay is" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeW-Aj-VQj">
-                                        <rect key="frame" x="0.0" y="148" width="343" height="24"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z9F-G8-w0J">
-                                        <rect key="frame" x="0.0" y="182" width="343" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost of postage" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H32-fQ-JKA">
-                                        <rect key="frame" x="0.0" y="222" width="343" height="24"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="He7-GW-r6x">
-                                        <rect key="frame" x="0.0" y="256" width="343" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r94-cv-O81">
-                                        <rect key="frame" x="0.0" y="296" width="343" height="30"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Calculate the amount to bid"/>
-                                        <connections>
-                                            <action selector="calculateBid:" destination="9pv-A4-QxB" eventType="touchUpInside" id="ITh-Z7-oGC"/>
-                                        </connections>
-                                    </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VjJ-LM-lpw">
-                                        <rect key="frame" x="0.0" y="336" width="343" height="25"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <accessibility key="accessibilityConfiguration">
-                                            <accessibilityTraits key="traits" notEnabled="YES"/>
-                                        </accessibility>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xSu-Ja-LMD">
+                                <rect key="frame" x="140" y="20" width="95" height="41"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </stackView>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="39c-fF-E2f"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0.0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wC8-aU-kV5">
+                                <rect key="frame" x="159" y="69" width="57" height="33"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Percent you want to pay" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gB-g6-TL5">
+                                <rect key="frame" x="64" y="188" width="247" height="29"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0.0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4wZ-lW-tnm">
+                                <rect key="frame" x="159" y="225" width="57" height="33"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max. Price to pay is" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeW-Aj-VQj">
+                                <rect key="frame" x="16" y="433" width="343" height="29"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z9F-G8-w0J">
+                                <rect key="frame" x="16" y="470" width="343" height="33"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost of postage" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H32-fQ-JKA">
+                                <rect key="frame" x="105" y="110" width="165" height="29"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0.0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="He7-GW-r6x">
+                                <rect key="frame" x="159" y="147" width="57" height="33"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r94-cv-O81">
+                                <rect key="frame" x="73" y="275" width="230" height="41"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title=" Calculate bid amount ">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="CalculateBid:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="fsL-jl-pBG"/>
+                                    <action selector="calculateBid:" destination="9pv-A4-QxB" eventType="touchUpInside" id="ITh-Z7-oGC"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="0.0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VjJ-LM-lpw">
+                                <rect key="frame" x="166" y="324" width="44" height="33"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="UTT-1C-WoQ" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="PUp-qV-5Kh"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="UTT-1C-WoQ" secondAttribute="trailing" id="WRZ-Ig-c3a"/>
-                            <constraint firstItem="UTT-1C-WoQ" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="20" id="gji-0P-wzA"/>
+                            <constraint firstItem="QeW-Aj-VQj" firstAttribute="leading" secondItem="Z9F-G8-w0J" secondAttribute="leading" id="1FF-w0-swd"/>
+                            <constraint firstItem="wC8-aU-kV5" firstAttribute="top" secondItem="xSu-Ja-LMD" secondAttribute="bottom" constant="8" symbolic="YES" id="ANb-3t-E5a"/>
+                            <constraint firstItem="r94-cv-O81" firstAttribute="centerX" secondItem="VjJ-LM-lpw" secondAttribute="centerX" id="AUy-1a-t20"/>
+                            <constraint firstItem="wC8-aU-kV5" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="Aa3-1l-dkd"/>
+                            <constraint firstItem="VjJ-LM-lpw" firstAttribute="top" secondItem="r94-cv-O81" secondAttribute="bottom" constant="8" symbolic="YES" id="Aoc-Al-WcO"/>
+                            <constraint firstItem="r94-cv-O81" firstAttribute="top" secondItem="4wZ-lW-tnm" secondAttribute="bottom" constant="17" id="Czt-yg-9sf"/>
+                            <constraint firstItem="QeW-Aj-VQj" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="DD0-vz-wfC"/>
+                            <constraint firstItem="xSu-Ja-LMD" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="J4U-l3-3N6"/>
+                            <constraint firstItem="VjJ-LM-lpw" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="JVy-lL-aHO"/>
+                            <constraint firstItem="H32-fQ-JKA" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="MxU-Jl-bo9"/>
+                            <constraint firstItem="1gB-g6-TL5" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="N32-2Y-dw4"/>
+                            <constraint firstItem="H32-fQ-JKA" firstAttribute="top" secondItem="wC8-aU-kV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Ucm-tx-fRa"/>
+                            <constraint firstItem="r94-cv-O81" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="V3n-0R-eZB"/>
+                            <constraint firstItem="4wZ-lW-tnm" firstAttribute="top" secondItem="1gB-g6-TL5" secondAttribute="bottom" constant="8" symbolic="YES" id="iIL-MC-a4e"/>
+                            <constraint firstItem="1gB-g6-TL5" firstAttribute="top" secondItem="He7-GW-r6x" secondAttribute="bottom" constant="8" symbolic="YES" id="lvO-Q9-wGF"/>
+                            <constraint firstItem="QeW-Aj-VQj" firstAttribute="top" secondItem="VjJ-LM-lpw" secondAttribute="bottom" constant="76" id="q7b-m5-BOT"/>
+                            <constraint firstItem="He7-GW-r6x" firstAttribute="top" secondItem="H32-fQ-JKA" secondAttribute="bottom" constant="8" symbolic="YES" id="qaO-Lm-g7m"/>
+                            <constraint firstItem="xSu-Ja-LMD" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="rWH-dO-nDl"/>
+                            <constraint firstItem="4wZ-lW-tnm" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="swN-vL-6TC"/>
+                            <constraint firstItem="r94-cv-O81" firstAttribute="centerX" secondItem="Z9F-G8-w0J" secondAttribute="centerX" id="tWl-VU-Nqq"/>
+                            <constraint firstItem="He7-GW-r6x" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="uZt-P3-phe"/>
+                            <constraint firstItem="r94-cv-O81" firstAttribute="centerX" secondItem="QeW-Aj-VQj" secondAttribute="centerX" id="vqK-0f-5Hi"/>
+                            <constraint firstItem="Z9F-G8-w0J" firstAttribute="top" secondItem="QeW-Aj-VQj" secondAttribute="bottom" constant="8" symbolic="YES" id="zAk-kw-aXJ"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="% of New" image="second" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="bidAmountField" destination="VjJ-LM-lpw" id="spN-5s-59T"/>
+                        <outlet property="calculateButton" destination="r94-cv-O81" id="hqA-Do-blh"/>
                         <outlet property="costOfPostageField" destination="He7-GW-r6x" id="skv-6c-Zvg"/>
                         <outlet property="fullPriceField" destination="wC8-aU-kV5" id="Ogx-QD-y60"/>
                         <outlet property="maxToPayField" destination="Z9F-G8-w0J" id="akb-fg-7Sd"/>
@@ -213,7 +236,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="359.15492957746477"/>
+            <point key="canvasLocation" x="749.60000000000002" y="358.4707646176912"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">

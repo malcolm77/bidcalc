@@ -14,6 +14,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var maxToPay: UITextField!
     @IBOutlet weak var postageCost: UITextField!
     @IBOutlet weak var amountToBid: UITextField!
+    @IBOutlet weak var calculateButton: UIButton!
     
     var maxPay: Float = 0
     var postage: Float = 0
@@ -30,6 +31,9 @@ class FirstViewController: UIViewController, UITextFieldDelegate
         //Looks for single or multiple taps.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(FirstViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
+        
+        calculateButton.layer.cornerRadius = 5
+        calculateButton.clipsToBounds = true
     }
 
     override func didReceiveMemoryWarning()
@@ -40,6 +44,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate
     
     @IBAction func calculateBid(_ sender: UIButton)
     {
+        dismissKeyboard()
         CalculateBid()
     }
     
@@ -56,7 +61,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate
 //    }
     
     //Calls this function when the tap is recognized.
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
