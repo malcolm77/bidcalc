@@ -28,6 +28,10 @@ class SecondViewController: UIViewController
 
         calculateButton.layer.cornerRadius = 5
         calculateButton.clipsToBounds = true
+        
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(FirstViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,14 +41,22 @@ class SecondViewController: UIViewController
     @IBAction func CalculateBid(_ sender: UIButton) {
         // button was pressed
         
-        if Float(fullPriceField.text!) != nil { }
-        if Float(percentToPayField.text!) != nil { }
-        if Float(costOfPostageField.text!) != nil { }
+        dismissKeyboard()
         
-        maxpay = fullprice + postage / (percentpay/100)
+        if Float(fullPriceField.text!) != nil { fullprice = Float(fullPriceField.text!)! }
+        if Float(percentToPayField.text!) != nil { percentpay = Float(percentToPayField.text!)! }
+        if Float(costOfPostageField.text!) != nil { postage = Float(costOfPostageField.text!)! }
+        
+        maxpay = (fullprice + postage) * (percentpay/100)
+        
+        //print("max pay:\(maxpay), fullprice:\(fullprice), percentpay:\(percentpay), costofpostage:\(postage)")
         
         bidAmountField.text = String(maxpay)
     }
     
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
 }
 
